@@ -52,14 +52,6 @@ pip install -r requirements.txt
 
 ## Usage/Examples
 
-```javascript
-import Component from 'my-project'
-
-function App() {
-  return <Component />
-}
-```
-
 To download a book, specify the URL of the book on AnyFlip or FlipHTML5. The script will retrieve each page and save it to a specified folder, optionally creating a PDF.
 
 ```python
