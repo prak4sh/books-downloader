@@ -1,0 +1,14 @@
+beautifulsoup4==4.12.3
+certifi==2024.8.30
+chardet==5.2.0
+charset-normalizer==3.4.0
+idna==3.10
+markdown-it-py==3.0.0
+mdurl==0.1.2
+pillow==11.0.0
+Pygments==2.18.0
+reportlab==4.2.5
+requests==2.32.3
+rich==13.9.4
+soupsieve==2.6
+urllib3==2.2.3
