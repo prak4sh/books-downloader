@@ -135,15 +135,28 @@ class DownloadBooks:
                 extension = os.path.splitext(url)[1]
                 filename = f"{i:04d}{extension}"
                 filename_with_path = os.path.join(download_folder, filename)
-                response = self.get_response(url)
-                with open(filename_with_path,  'wb') as f:
-                    f.write(response.content)
+                if not os.path.exists(filename_with_path):
+                    response = self.get_response(url)
+                    with open(filename_with_path,  'wb') as f:
+                        f.write(response.content)
                 
                 # Update the progress bar
                 progress.update(task, advance=1)
 
                 
-    def create_pdf(image_files, image_dir, pdf):
+    def create_pdf(self, output_file, image_dir):
+        output_file = re.sub(r'[\'\\:]', '', output_file)
+        if os.path.exists(output_file):
+            print(f"Output file {output_file} already exists")
+            return
+
+        image_files = [f for f in os.listdir(image_dir) if f.lower().endswith(('.jpg', '.jpeg', '.png', '.webp'))]
+        if not image_files:
+            raise ValueError(f"No images found in path {image_dir}")
+
+        image_files.sort()
+        first_image = Image.open(os.path.join(image_dir, image_files[0]))
+        pdf = canvas.Canvas(output_file, pagesize=first_image.size)
         # Customize the progress display
         with Progress(
             TextColumn("[bold blue]{task.description}"),
@@ -183,10 +196,13 @@ class DownloadBooks:
 
         self.download_images(pages_url, temp_download_folder)
         self.print_info("Converting to PDF", 'INF')
-        try:
+        # try:
+        if 1:
             self.create_pdf(output_file, temp_download_folder)
             self.print_info(f"Task completed successfully. Output is saved as {output_file}", 'INF')
-        except Exception as e:
+        # except Exception as e:
+        if 0:
+            e = None
             self.print_info(f'Error in creating pdf. Error: {e}', 'ERR')
         
         if not args.keep_download_folder:

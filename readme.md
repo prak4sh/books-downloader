@@ -33,7 +33,7 @@ pip install -r requirements.txt
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/prakashtech250/books-downloader.git
+git clone https://github.com/prak4sh/books-downloader.git
 
 ```
 
@@ -76,4 +76,7 @@ If you encounter issues, ensure that:
 ## Contributing
 
 Feel free to open an issue or submit a pull request if you find a bug or have suggestions for improvement.
+
+# Inspired by:
+    https://github.com/Lofter1/anyflip-downloader
 
