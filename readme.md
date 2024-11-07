@@ -77,6 +77,6 @@ If you encounter issues, ensure that:
 
 Feel free to open an issue or submit a pull request if you find a bug or have suggestions for improvement.
 
-# Inspired by:
+## Inspired by:
     https://github.com/Lofter1/anyflip-downloader
 
